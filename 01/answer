@@ -1,0 +1,7 @@
+The code inside the while loop will run endlessly until the condition i < number is met. In each loop, the code will test whether number divides i evenly. If it does, it will print i. Either way, it will move on to the next line, which increments i by 1. The process repeats until i becomes 12. The output, or what will be printed will be the following:
+2
+3
+4
+6
+
+In other words, this code finds factors of 12
