@@ -7,16 +7,23 @@
 
 def fizzbuzz():
     x = 1
+    result = []
     while x < 101:
         if x%3 == 0:
             if x%5 == 0:
-                print('FizzBuzz')
+                result.append('FizzBuzz')
             else:
-                print('Fizz')
+                result.append('Fizz')
         elif x%5 == 0:
-            print('Buzz')
+            result.append('Buzz')
         else:
-            print(x)
+            result.append(x)
         x+=1
-            
-fizzbuzz()
+    return result
+
+answer = fizzbuzz()
+
+for i in range(len(answer)):
+    if (i+1)%10 == 0:
+        print(str(answer[i])+'\n')
+    else: print(str(answer[i]),' ',end='')
