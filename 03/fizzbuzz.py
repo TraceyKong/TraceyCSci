@@ -24,6 +24,6 @@ def fizzbuzz():
 answer = fizzbuzz()
 
 for i in range(len(answer)):
-    if (i+1)%10 == 0:
+    if (i+1)%5 == 0:
         print(str(answer[i])+'\n')
-    else: print(str(answer[i]),' ',end='')
+    else: print(str(answer[i]).ljust(10),end='')
