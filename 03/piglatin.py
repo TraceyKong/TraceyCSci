@@ -16,11 +16,14 @@ def piglatinify(s):
 def run():
     str = input('Please enter a string of your choice: ')
     print(piglatinify(str)+'\n')
+    
+def ask():
     return input('Run again or exit? [R/E]: ')
 
+run()
 while True:
-    re = run()
+    re = ask()
     if re == 'E': break
     elif re != 'R':
-        re2 = input('Sorry, I don\'t understand.')
-        continue
+        print('Sorry, I don\'t understand.')
+    else:run()
