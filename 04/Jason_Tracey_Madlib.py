@@ -9,7 +9,7 @@ story = '''NAME is a very suave guy played by NAME. He\'s done some bad stuff, b
     they get in a very bloody fight in which they VERB each other's NOUN with NOUN and talk about NOUN NOUN for a really long time.'''
 
 nouns = ['paper', 'pony', 'blob', 'monarchy', 'brain']
-names = ['Bob the Buidler', 'John Smith', 'Indiana Jones']
+names = ['Bob the Builder', 'John Smith', 'Indiana Jones']
 verb = ['play', 'surf', 'ate', 'slept', 'crash', 'called', 'fried']
 
 def return_random(l):
@@ -20,9 +20,9 @@ for i in range(len(s)):
     if 'NOUN' in s[i]:
         s[i] = nouns[return_random(nouns)]    
     elif 'VERB' in s[i]:
-        s[i] = verb[return_random(verbs)]
+        s[i] = verb[return_random(verb)]
     elif 'NAME' in s[i]:
-        s[i] = names[return_random(names)]]
+        s[i] = names[return_random(names)]
     elif 'NUMBER' in s[i]:
         s[i] = str(int(random.random()*1000))
 
