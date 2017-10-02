@@ -1,13 +1,14 @@
 def encode_letter(c,r):
-    return str(chr(ord(c)+r))
+    a = 65
+    if ord(c)>=97:
+        a = 97
+    return chr(((ord(c)-a)+r)%26+a)
 
 def encode_string(s,r):
     answer = ''
     for letter in s:
         if letter.isalpha():
-            if ord(letter.upper())+r > 90:
-                answer+=encode_letter(letter,r-26)
-            else: answer+=encode_letter(letter,r)
+            answer+=encode_letter(letter,r)
         else: answer+=letter
     return answer
 
