@@ -34,16 +34,20 @@ def build_frequency_vector(s):
     num_letters = len(s) - spaces
     v = []
     for letter in 'abcdefghijklmnopqrstuvwxyz':
-        v.append((s.count(letter)/num_letters)*100)
+        v.append((s.count(letter)/num_letters))
     return v
 
 def print_frequency_table(f):
     for i in range(26):
         print(chr(i+97)+':'+str(f[i]))
-        
-al_frequency = [8.167, 1.492, 2.782, 4.253, 12.702, 2.228, 2.015, 6.094, 6.966,
-                0.153, 0.772, 4.025, 2.406, 6.749, 7.507, 1.929, 0.095, 5.987, 6.327,
-                9.056, 2.758, 0.978, 2.36, 0.15, 1.974, 0.074]
+
+def decode_string(s):
+    combos = full_encode(s)
+    distances = []
+    for c in combos:
+        f = build_frequency_vector(c)
+        distances.append(distance(f, al_frequency))
+    return combos[get_minimum(distances)]
 
 def get_minimum(numl):
     a = 0
@@ -56,14 +60,6 @@ def get_minimum(numl):
         a+=1
     return m
 
-def decode_string(s):
-    combos = full_encode(s)
-    distances = []
-    for c in combos:
-        f = build_frequency_vector(c)
-        distances.append(distance(f, al_frequency))
-    return combos[get_minimum(distances)]
-
 def print_vectors(s):
     combos = full_encode(s)
     vectors = []
@@ -74,3 +70,10 @@ def print_vectors(s):
             print("%.2f" % j + ', ',end='')
         print('\n')
         
+f = open('pg1661.txt').read()
+
+def build_stats(t):
+    text = t.lower()
+    return build_frequency_vector(text)
+
+real_stats = build_stats(f)
