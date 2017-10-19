@@ -18,3 +18,13 @@ def mode(l):
         if i != 0 and f[i] > f[i-1]:
             max = l[i]
     return max
+
+def mode1(l):
+    f = freq(l[0],l)
+    i = 0
+    for a in range(len(l)):
+        c = freq(l[a],l)
+        if c > f:
+            f = c
+            i = a
+    return l[i]
