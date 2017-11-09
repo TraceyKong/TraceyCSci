@@ -2,6 +2,7 @@ def rp(w):
     result = [l for l in w if l.isalpha()]
     return ''.join(result)
 
+
 def bwcd(wordlist):
     d={}
     for w in set(wordlist):
