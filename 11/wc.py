@@ -16,17 +16,28 @@ def bwcff(f):
     tf = [rp(w) for w in f.lower().split()]
     l = {}
     for i in range(len(tf)-2):
-        l.setdefault((tf[i],tf[i+1]),[])
-        l[(tf[i],tf[i+1])].append(tf[i+2])
+        a,b,c = tf[i],tf[i+1],tf[i+2]
+        l.setdefault((a,b),[])
+        l[(a,b)].append(c)
     return l
 
-def generate_text(d,start_word,length=50):
-    wordlist=[]
-    next = start_word
+def generate_text(d,length=50):
+    k = list(d.keys())
+    next = random.choice(k)
+    text_list = list(next)
     for i in range(length):
-        wordlist.append(next)
-        next = random.choice(d[next])
-    return ' '.join(wordlist)
+        next_word = random.choice(d[next])
+        if next_word == '':
+            break
+        next = next[1:] + (next_word,)
+        print(next)
+        text_list.append(next_word)
+    return ' '.join(text_list)
+    
+def build_ngrams(wordlist,prelength):
+    d={}
+    for i in range(len(wordlist)-prelength+1):
+        sublist = worldList[i:i+prelength+1]
+        t = tuple(sublist[0:len(sublist)])
 
 hamlet = bwcff("hamlet.txt")
-g = generate_text(hamlet,'to')
