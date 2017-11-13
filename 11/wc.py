@@ -29,6 +29,4 @@ def generate_text(d,start_word,length=50):
     return ' '.join(wordlist)
 
 hamlet = bwcff("hamlet.txt")
-psalms = bwcff("psalms.txt")
-sonnets = bwcff("sonnets.txt")
-g = generate_text(sonnets,'to')
+g = generate_text(hamlet,'to')
