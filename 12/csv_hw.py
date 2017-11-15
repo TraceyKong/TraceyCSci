@@ -1,10 +1,10 @@
 import csv
 
 f = open("sample-texts.csv")
-l = [line for line in csv.reader(f)]
+sampleText = [line for line in csv.reader(f)]
 f.close()
-f = open("non-us-offenders.csv")
-d = [line for line in csv.DictReader(f)]
+f = open("offenders-clean.csv")
+offendersClean = [line for line in csv.DictReader(f)]
 f.close()
 
 def inverted_index_reader(l):
@@ -17,5 +17,5 @@ def inverted_index_dict(l):
     return l
     
 
-reader = inverted_index_reader(l)
-dreader = inverted_index_dict(d)
+reader = inverted_index_reader(sampleText)
+dreader = inverted_index_dict(offendersClean)
