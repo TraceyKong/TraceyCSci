@@ -1,12 +1,15 @@
 import csv
 
+def clean_text(t):
+    return ''.join([i for i in t if i.isalpha() or i==' '])
+    
 def inverted_index_reader(l):
     f = open(l)
     data =  [line for line in csv.reader(f)]
     f.close()
     wordList= {}
-    for word in [w for wl in data for w in wl[1].split(' ')]:
-        wordList.setdefault(word,[line[0] for line in data if word in line[1]])
+    for word in [w for wl in data for w in clean_text(' '.join(wl[1:])).split(' ')]:
+        wordList.setdefault(word,[line[0] for line in data if word in ' '.join(line[1:])])
     return wordList
     
 def reader_searcher(searchWord,d):
@@ -41,4 +44,4 @@ def dict_reader_searcher(attribute,searchWord,d):
     print('no result')
 
 sample_text = inverted_index_reader("sample-texts.csv")
-offenders_clean = inverted_index_dict("offenders-clean.csv")
+offenders_clean = inverted_index_reader("offenders-clean.csv")
