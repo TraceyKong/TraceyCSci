@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main(){
+  std::cout << "Hello!\n";
+  int i = 29;
+  int j = 30;
+  cout << "The sum of" << i << "+" << j << "=" << addtwo(i,j);
+}
+
+int addtwo(int a, int b){
+  int sum = a+b;
+}
