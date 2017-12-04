@@ -1,0 +1,10 @@
+#include <iostream>
+
+int lone_sum(int a, int b, int c){
+  int ints[] = {a,b,c};
+  return sizeof(ints);
+}
+
+int main(){
+  std::cout << lone_sum(11,10,12);
+}
